@@ -4,14 +4,13 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ButtonComponent from "../../components/ButtonComponent/ButtonComponent";
 import InputForm from "../../components/InputForm/InputForm";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import "./style.css";
 import * as UserService from "../../services/UserServices";
 import { useMutationHooks } from "../../hooks/useMutationHook";
 import Loading from "../../components/LoadingComponent/Loading";
 import * as message from "../../components/Message/Message";
 import { updateUser } from "../../redux/slices/UserSlices";
-// import { Button, Upload } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 
 const ProfilePage = () => {
