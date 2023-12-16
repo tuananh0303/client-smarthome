@@ -34,8 +34,8 @@ const DashBoardContent = () => {
   const [room, setRoom] = useState(rooms[0]);
   const [deviceData, setDeviceData] = useState(null);
   useEffect(() => {
-    const socket = io("http://localhost:3000"); // Kết nối tới server socket.io
-
+    const socket = io(process.env.REACT_APP_SOCKET_SERVER_URL); // Kết nối tới server socket.io
+    console.log("process.env.SOCKET:", process.env.REACT_APP_SOCKET_SERVER_URL);
     socket.on("sensorData", (data) => {
       console.log("Received sensor data:", data);
       console.log("temperature:", data.temperature);
@@ -66,7 +66,7 @@ const DashBoardContent = () => {
     };
     setDeviceData(updatedDeviceData);
     console.log("updateControlData:", updatedDeviceData);
-    const socket = io("http://localhost:3000");
+    const socket = io(process.env.REACT_APP_SOCKET_SERVER_URL);
     socket.emit("controlData", updatedDeviceData);
   };
   useEffect(() => {
